@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.js
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import ControlSlider from './components/ControlSlider';
+import DataChart from './components/DataChart';
+import headerImage from './assets/header.png'; // Adjust the filename if different
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [data, setData] = useState({ timestamps: [], values: [] });
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    useEffect(() => {
+        fetch('/api/data')
+            .then((response) => response.json())
+            .then((data) => {
+                setData({
+                    timestamps: data.timestamps,  // Example structure from your Modbus data
+                    values: data.values,
+                });
+            });
+    }, []);
+
+    return (
+        <div className="app-container">
+            <header className="app-header">
+                <img src={headerImage} alt="Header" className="header-image" />
+            </header>
+
+            <div className="app-body">
+                <aside className="app-sidebar">
+                    <nav>
+                        <ul>
+                            <li><button>Dashboard</button></li>
+                            <li><button>Settings</button></li>
+                            <li><button>Control</button></li>
+                            <li><button>Logs</button></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <main className="app-main">
+                    <div className="dashboard">
+                        <h2>Live Data</h2>
+                        <DataChart data={data} />
+                        <ControlSlider />
+                    </div>
+                </main>
+            </div>
+        </div>
+    );
 }
 
-export default App
+export default App;
