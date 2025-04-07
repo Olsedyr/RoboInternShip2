@@ -1,0 +1,25 @@
+{
+  "name": "robo-internship",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "concurrently -k \"cd frontend && npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "build": "cd frontend && npm run build",
+    "dist": "npm run build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.robo.internship",
+    "files": [
+      "electron/**/*",
+      "frontend/build/**/*",
+      "backend/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend"
+      }
+    ]
+  }
+}

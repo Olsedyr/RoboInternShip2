@@ -1,0 +1,506 @@
+/* :root for CSS variables */
+:root {
+  /* Light background and header colors */
+  --background-color: #f5f5f5;         /* Very light grey for main background */
+  --header-background: #ffffff;        /* White header background */
+  --sidebar-background: #e8e8e8;         /* Light grey for sidebar */
+
+  /* Accent and text colors */
+  --primary-color: #0071bc;            /* Polyscope blue accent */
+  --secondary-color: #5a5a5a;          /* Medium grey for secondary elements */
+  --text-color: #333333;               /* Dark grey for text */
+
+  /* Other useful colors */
+  --card-background: #ffffff;
+  --border-color: #d0d0d0;
+}
+
+/* Body and Global Styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+.app-header {
+  background-color: var(--header-background);
+  border-bottom: 2px solid var(--primary-color);
+  padding: 15px;
+  text-align: center;
+}
+
+.header-image {
+  max-width: 15%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Main Body Layout */
+.app-body {
+  display: flex;
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Sidebar (Left) */
+.app-sidebar {
+  width: 200px;
+  background-color: var(--sidebar-background);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.app-sidebar nav ul li {
+  margin-bottom: 20px;
+}
+
+/* Sidebar Item Styles */
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.sidebar-item.active {
+  background-color: rgba(0,113,188,0.6);
+  border-radius: 20px;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(0,113,188,0.6);
+  color: white;
+  border-radius: 20px;
+}
+
+.sidebar-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.sidebar-item span {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px; /* Slight space between the icon and text */
+}
+/* Main Content (Center) */
+.app-main {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Right Sidebar */
+.app-right-sidebar {
+  width: 200px;
+  background-color: var(--sidebar-background);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add these to your existing CSS */
+
+/* Right Sidebar Options */
+.right-option {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.right-option:hover {
+  background-color: rgba(0,113,188,0.6);
+  color: white;
+  border-radius: 20px;
+}
+
+.right-option img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.right-option span {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Control Panel */
+.control-panel {
+  position: fixed;
+  right: 220px;
+  top: 100px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.control-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  width: auto;
+  padding: 0 10px;
+}
+
+.close-button:hover {
+  color: var(--primary-color);
+  background: none;
+}
+
+.robot-image-container {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.robot-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+}
+
+.axis-controls {
+  margin-top: 15px;
+}
+
+.axis-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.axis-label {
+  font-weight: bold;
+  width: 60px;
+}
+
+.axis-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.axis-buttons button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.axis-value {
+  width: 50px;
+  text-align: center;
+}
+/* Add styling for the login form */
+.login-form {
+  width: 300px;
+  margin-top: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Styling for programs list */
+.programs ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.programs ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.programs button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.programs button:hover {
+  background-color: #444;
+}
+
+/* Styling for Programs Table */
+.programs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.programs-table th, .programs-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.programs-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.programs-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.programs-table button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.programs-table button:hover {
+  background-color: #c9302c;
+}
+
+button {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Styling for Program Actions */
+.program-actions {
+  margin-top: 20px;
+}
+
+.program-actions ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.program-actions li {
+  margin: 10px 0;
+}
+
+.program-actions span {
+  margin-right: 10px;
+}
+
+.program-actions button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.program-actions button:hover {
+  background-color: #444;
+}
+
+button {
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* Styling for Program Steps */
+.program-steps {
+  margin-top: 20px;
+}
+
+.program-steps ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.program-steps li {
+  margin: 10px 0;
+}
+
+.program-steps span {
+  margin-right: 10px;
+}
+
+.program-steps button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.program-steps button:hover {
+  background-color: #444;
+}
+
+
+button:hover {
+  background-color: #444;
+}
+/* Program Steps Styling */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.step-box {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-left: 4px solid #ddd;
+}
+
+.step-box.pending {
+  background-color: #f5f5f5;
+  border-left-color: #ddd;
+}
+
+.step-box.running {
+  background-color: rgba(0, 113, 188, 0.1);
+  border-left-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 113, 188, 0.2);
+}
+
+.step-box.completed {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left-color: #4CAF50;
+}
+
+.step-number {
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-name {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.step-status {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.run-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.run-button:hover {
+  background-color: #005a9c;
+}
